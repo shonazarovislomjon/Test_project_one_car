@@ -2,10 +2,10 @@ CREATE OR REPLACE PACKAGE As_Api IS
 
   -- Author  : ISLOMJON.SH
   -- Created : 01.08.2024 13:34:49
-  -- Purpose : Пакет для работы с внешними сервисами 
+  -- Purpose : РџР°РєРµС‚ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІРЅРµС€РЅРёРјРё СЃРµСЂРІРёСЃР°РјРё 
 
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по cохранению клиентов 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ cРѕС…СЂР°РЅРµРЅРёСЋ РєР»РёРµРЅС‚РѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Save_Client(i_Request_Id    VARCHAR2,
                         i_User_Id       NUMBER,
@@ -14,7 +14,7 @@ CREATE OR REPLACE PACKAGE As_Api IS
                         o_Error_Code    OUT VARCHAR2,
                         o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по cохранению клиентов 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ cРѕС…СЂР°РЅРµРЅРёСЋ РєР»РёРµРЅС‚РѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Save_Car(i_Request_Id    VARCHAR2,
                      i_User_Id       NUMBER,
@@ -23,7 +23,7 @@ CREATE OR REPLACE PACKAGE As_Api IS
                      o_Error_Code    OUT VARCHAR2,
                      o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по созданию тасков 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ СЃРѕР·РґР°РЅРёСЋ С‚Р°СЃРєРѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Create_Tasks(i_Request_Id    VARCHAR2,
                          i_User_Id       NUMBER,
@@ -32,7 +32,7 @@ CREATE OR REPLACE PACKAGE As_Api IS
                          o_Error_Code    OUT VARCHAR2,
                          o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по созданию тасков 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ СЃРѕР·РґР°РЅРёСЋ С‚Р°СЃРєРѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Update_Tasks(i_Request_Id    VARCHAR2,
                          i_User_Id       NUMBER,
@@ -40,7 +40,7 @@ CREATE OR REPLACE PACKAGE As_Api IS
                          o_Error_Code    OUT VARCHAR2,
                          o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Метод для учёта использованных зап частей по таскам 
+  -- РњРµС‚РѕРґ РґР»СЏ СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅС‹С… Р·Р°Рї С‡Р°СЃС‚РµР№ РїРѕ С‚Р°СЃРєР°Рј 
   ----------------------------------------------------------------------------------
   PROCEDURE Add_Spare_Part_To_Task(i_Request_Id    VARCHAR2,
                                    i_User_Id       NUMBER,
@@ -48,26 +48,26 @@ CREATE OR REPLACE PACKAGE As_Api IS
                                    o_Error_Code    OUT VARCHAR2,
                                    o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о статусе тасков возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚Р°С‚СѓСЃРµ С‚Р°СЃРєРѕРІ РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Task_States(o_Error_Message OUT VARCHAR2,
                             o_Error_Code    OUT VARCHAR2,
                             o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о деталях тасков возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РґРµС‚Р°Р»СЏС… С‚Р°СЃРєРѕРІ РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Task_Details(i_Task_Uid      NUMBER,
                              o_Error_Message OUT VARCHAR2,
                              o_Error_Code    OUT VARCHAR2,
                              o_Result        OUT CLOB);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации об услугах возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РѕР± СѓСЃР»СѓРіР°С… РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Services(o_Error_Message OUT VARCHAR2,
                          o_Error_Code    OUT VARCHAR2,
                          o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о cотрудниках сервиса возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ cРѕС‚СЂСѓРґРЅРёРєР°С… СЃРµСЂРІРёСЃР° РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Employees(i_First_Name    VARCHAR2,
                           i_Last_Name     VARCHAR2,
@@ -76,7 +76,7 @@ CREATE OR REPLACE PACKAGE As_Api IS
                           o_Error_Code    OUT VARCHAR2,
                           o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о клиентах возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєР»РёРµРЅС‚Р°С… РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Client(i_First_Name    VARCHAR2,
                        i_Last_Name     VARCHAR2,
@@ -85,7 +85,7 @@ CREATE OR REPLACE PACKAGE As_Api IS
                        o_Error_Code    OUT VARCHAR2,
                        o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации об зарегистрированных автомобилях возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РѕР± Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… Р°РІС‚РѕРјРѕР±РёР»СЏС… РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Car(i_Vin           VARCHAR2,
                     i_License_Plate VARCHAR2,
@@ -94,19 +94,19 @@ CREATE OR REPLACE PACKAGE As_Api IS
                     o_Error_Code    OUT VARCHAR2,
                     o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о производителях автомобиля  возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏС… Р°РІС‚РѕРјРѕР±РёР»СЏ  РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Vehicle_Make(o_Error_Message OUT VARCHAR2,
                              o_Error_Code    OUT VARCHAR2,
                              o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о моделях автомобилей  возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РјРѕРґРµР»СЏС… Р°РІС‚РѕРјРѕР±РёР»РµР№  РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Vehicle_Model(o_Error_Message OUT VARCHAR2,
                               o_Error_Code    OUT VARCHAR2,
                               o_Result_Cursor OUT SYS_REFCURSOR);
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о учёте зап частей  возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СѓС‡С‘С‚Рµ Р·Р°Рї С‡Р°СЃС‚РµР№  РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Spare_Parts(o_Error_Message OUT VARCHAR2,
                             o_Error_Code    OUT VARCHAR2,
@@ -117,7 +117,7 @@ END As_Api;
 CREATE OR REPLACE PACKAGE BODY As_Api IS
 
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по cохранению клиентов 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ cРѕС…СЂР°РЅРµРЅРёСЋ РєР»РёРµРЅС‚РѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Save_Client(i_Request_Id    VARCHAR2,
                         i_User_Id       NUMBER,
@@ -125,12 +125,12 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                         o_Response      OUT CLOB,
                         o_Error_Code    OUT VARCHAR2,
                         o_Error_Message OUT VARCHAR2) IS
-    -- здесь используется свой кастомный тип для работы с JSON (к сожелению не могу им поделится)
+    -- Р·РґРµСЃСЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРІРѕР№ РєР°СЃС‚РѕРјРЅС‹Р№ С‚РёРї РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ JSON (Рє СЃРѕР¶РµР»РµРЅРёСЋ РЅРµ РјРѕРіСѓ РёРј РїРѕРґРµР»РёС‚СЃСЏ)
     v_Request_Hash Hashmap := Hashmap();
   BEGIN
-    -- Парсим JSON через кастомный парсер ( можно было использовать оракловый )
+    -- РџР°СЂСЃРёРј JSON С‡РµСЂРµР· РєР°СЃС‚РѕРјРЅС‹Р№ РїР°СЂСЃРµСЂ ( РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕСЂР°РєР»РѕРІС‹Р№ )
     Json_Parser.Parse_Json(i_Request, v_Request_Hash);
-    -- валидация значений 
+    -- РІР°Р»РёРґР°С†РёСЏ Р·РЅР°С‡РµРЅРёР№ 
     As_Check.Check_Client_Params(i_First_Name    => v_Request_Hash.Get_Optional_Varchar2('First_Name'),
                                  i_Last_Name     => v_Request_Hash.Get_Optional_Varchar2('Last_Name'),
                                  i_Phone         => v_Request_Hash.Get_Optional_Varchar2('Phone'),
@@ -140,7 +140,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                                  o_Error_Code    => o_Error_Code,
                                  o_Error_Message => o_Error_Message);
     IF o_Error_Code IS NOT NULL THEN
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -150,7 +150,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
       RETURN;
     END IF;
-    -- вызов метода 
+    -- РІС‹Р·РѕРІ РјРµС‚РѕРґР° 
     As_Kernel.Save_Client(i_First_Name        => v_Request_Hash.Get_Optional_Varchar2('First_Name'),
                           i_Last_Name         => v_Request_Hash.Get_Optional_Varchar2('Last_Name'),
                           i_Phone             => v_Request_Hash.Get_Optional_Varchar2('Phone'),
@@ -158,10 +158,10 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Address           => v_Request_Hash.Get_Optional_Varchar2('Address'),
                           i_Registration_Date => v_Request_Hash.Get_Optional_Date('Registration_Date'),
                           i_Date_Of_Birth     => v_Request_Hash.Get_Optional_Date('Date_Of_Birth'));
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
-    -- логирование 
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
+    -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
     As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                         i_Method_Name   => $$PLSQL_UNIT,
                         i_Request       => i_Request,
@@ -173,9 +173,9 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -185,7 +185,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
   END Save_Client;
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по cохранению клиентов 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ cРѕС…СЂР°РЅРµРЅРёСЋ РєР»РёРµРЅС‚РѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Save_Car(i_Request_Id    VARCHAR2,
                      i_User_Id       NUMBER,
@@ -193,12 +193,12 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                      o_Response      OUT CLOB,
                      o_Error_Code    OUT VARCHAR2,
                      o_Error_Message OUT VARCHAR2) IS
-    -- здесь используется свой кастомный тип для работы с JSON (к сожелению не могу им поделится)
+    -- Р·РґРµСЃСЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРІРѕР№ РєР°СЃС‚РѕРјРЅС‹Р№ С‚РёРї РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ JSON (Рє СЃРѕР¶РµР»РµРЅРёСЋ РЅРµ РјРѕРіСѓ РёРј РїРѕРґРµР»РёС‚СЃСЏ)
     v_Request_Hash Hashmap := Hashmap();
   BEGIN
-    -- Парсим JSON через кастомный парсер ( можно было использовать оракловый )
+    -- РџР°СЂСЃРёРј JSON С‡РµСЂРµР· РєР°СЃС‚РѕРјРЅС‹Р№ РїР°СЂСЃРµСЂ ( РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕСЂР°РєР»РѕРІС‹Р№ )
     Json_Parser.Parse_Json(i_Request, v_Request_Hash);
-    -- валидация значений 
+    -- РІР°Р»РёРґР°С†РёСЏ Р·РЅР°С‡РµРЅРёР№ 
     As_Check.Check_Car_Params(i_Make          => v_Request_Hash.Get_Varchar2('Make'),
                               i_Model         => v_Request_Hash.Get_Varchar2('Model'),
                               i_Mileage       => v_Request_Hash.Get_Number('Mileage'),
@@ -208,7 +208,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                               o_Error_Code    => o_Error_Code,
                               o_Error_Message => o_Error_Message);
     IF o_Error_Code IS NOT NULL THEN
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -218,7 +218,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
       RETURN;
     END IF;
-    -- вызов метода 
+    -- РІС‹Р·РѕРІ РјРµС‚РѕРґР° 
     As_Kernel.Save_Car(i_Make          => v_Request_Hash.Get_Varchar2('Make'),
                        i_Model         => v_Request_Hash.Get_Varchar2('Model'),
                        i_Year_Produced => v_Request_Hash.Get_Number('Year_Produced'),
@@ -228,10 +228,10 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                        i_License_Plate => v_Request_Hash.Get_Varchar2('License_Plate'),
                        i_Owner_Id      => v_Request_Hash.Get_Varchar2('Owner_Id'),
                        i_User_Id       => v_Request_Hash.Get_Varchar2('User_Id'));
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
-    -- логирование 
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
+    -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
     As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                         i_Method_Name   => $$PLSQL_UNIT,
                         i_Request       => i_Request,
@@ -243,9 +243,9 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -255,7 +255,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
   END Save_Car;
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по созданию тасков 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ СЃРѕР·РґР°РЅРёСЋ С‚Р°СЃРєРѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Create_Tasks(i_Request_Id    VARCHAR2,
                          i_User_Id       NUMBER,
@@ -264,14 +264,14 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                          o_Error_Code    OUT VARCHAR2,
                          o_Error_Message OUT VARCHAR2) IS
     v_Task_Uid NUMBER;
-    -- здесь используется свой кастомный тип для работы с JSON (к сожелению не могу им поделится)
+    -- Р·РґРµСЃСЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРІРѕР№ РєР°СЃС‚РѕРјРЅС‹Р№ С‚РёРї РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ JSON (Рє СЃРѕР¶РµР»РµРЅРёСЋ РЅРµ РјРѕРіСѓ РёРј РїРѕРґРµР»РёС‚СЃСЏ)
     v_Request_Hash  Hashmap := Hashmap();
     v_Response_Hash Hashmap := Hashmap();
   BEGIN
   
-    -- Парсим JSON через кастомный парсер ( можно было использовать оракловый )
+    -- РџР°СЂСЃРёРј JSON С‡РµСЂРµР· РєР°СЃС‚РѕРјРЅС‹Р№ РїР°СЂСЃРµСЂ ( РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕСЂР°РєР»РѕРІС‹Р№ )
     Json_Parser.Parse_Json(i_Request, v_Request_Hash);
-    -- валидация значений 
+    -- РІР°Р»РёРґР°С†РёСЏ Р·РЅР°С‡РµРЅРёР№ 
     As_Check.Check_Params_Of_Tasks(i_Vehicle_Id        => v_Request_Hash.Get_Number('Vehicle_Id'),
                                    i_Service_Ids_Array => v_Request_Hash.Get_Array_Number('Service_Ids_Array'),
                                    i_Emp_Ids_Array     => v_Request_Hash.Get_Array_Number('Emp_Ids_Array'),
@@ -279,7 +279,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                                    o_Error_Code        => o_Error_Code,
                                    o_Error_Message     => o_Error_Message);
     IF o_Error_Code IS NOT NULL THEN
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -289,7 +289,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
       RETURN;
     END IF;
-    -- вызов метода 
+    -- РІС‹Р·РѕРІ РјРµС‚РѕРґР° 
     As_Kernel.Create_Tasks(i_Vehicle_Id        => v_Request_Hash.Get_Number('Vehicle_Id'),
                            i_Service_Ids_Array => v_Request_Hash.Get_Array_Number('Service_Ids_Array'),
                            i_Emp_Ids_Array     => v_Request_Hash.Get_Array_Number('Emp_Ids_Array'),
@@ -297,14 +297,14 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                            i_Comment           => v_Request_Hash.Get_Optional_Varchar2('Comment'),
                            i_Ammounts_Array    => v_Request_Hash.Get_Array_Number('Ammounts_Array'),
                            o_Taks_Uid          => v_Task_Uid);
-    -- При успешном ответе от процедуры 
+    -- РџСЂРё СѓСЃРїРµС€РЅРѕРј РѕС‚РІРµС‚Рµ РѕС‚ РїСЂРѕС†РµРґСѓСЂС‹ 
     v_Response_Hash.Put('Task_Uid', v_Task_Uid);
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
-    -- так же возвращаем json c task_uid для дальнейшего использования 
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
+    -- С‚Р°Рє Р¶Рµ РІРѕР·РІСЂР°С‰Р°РµРј json c task_uid РґР»СЏ РґР°Р»СЊРЅРµР№С€РµРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ 
     o_Response := v_Response_Hash.Json;
-    -- логирование 
+    -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
     As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                         i_Method_Name   => $$PLSQL_UNIT,
                         i_Request       => i_Request,
@@ -316,9 +316,9 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -328,38 +328,38 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
   END Create_Tasks;
   ----------------------------------------------------------------------------------
-  -- Метод для вызова по созданию тасков 
+  -- РњРµС‚РѕРґ РґР»СЏ РІС‹Р·РѕРІР° РїРѕ СЃРѕР·РґР°РЅРёСЋ С‚Р°СЃРєРѕРІ 
   ----------------------------------------------------------------------------------
   PROCEDURE Update_Tasks(i_Request_Id    VARCHAR2,
                          i_User_Id       NUMBER,
                          i_Request       CLOB,
                          o_Error_Code    OUT VARCHAR2,
                          o_Error_Message OUT VARCHAR2) IS
-    -- здесь используется свой кастомный тип для работы с JSON (к сожелению не могу им поделится)
+    -- Р·РґРµСЃСЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРІРѕР№ РєР°СЃС‚РѕРјРЅС‹Р№ С‚РёРї РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ JSON (Рє СЃРѕР¶РµР»РµРЅРёСЋ РЅРµ РјРѕРіСѓ РёРј РїРѕРґРµР»РёС‚СЃСЏ)
     v_Request_Hash      Hashmap := Hashmap();
     v_Service_Ids_Array Array_Number := Array_Number();
   BEGIN
-    -- Парсим JSON через кастомный парсер ( можно было использовать оракловый )
+    -- РџР°СЂСЃРёРј JSON С‡РµСЂРµР· РєР°СЃС‚РѕРјРЅС‹Р№ РїР°СЂСЃРµСЂ ( РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕСЂР°РєР»РѕРІС‹Р№ )
     Json_Parser.Parse_Json(i_Request, v_Request_Hash);
     v_Service_Ids_Array := v_Request_Hash.Get_Array_Number('Service_Ids_Array');
   
-    -- вызов метода 
+    -- РІС‹Р·РѕРІ РјРµС‚РѕРґР° 
     As_Kernel.Update_Tasks_State(i_Task_State     => v_Request_Hash.Get_Number('Task_State'),
                                  i_Task_Ids_Array => v_Service_Ids_Array);
   
-    -- Отправка запроса ( для мобилки например ) если таска по ид готова к сдаче клиенту
-    IF v_Request_Hash.Get_Number('Task_State') = As_Consts.с_Task_State_Ready THEN
+    -- РћС‚РїСЂР°РІРєР° Р·Р°РїСЂРѕСЃР° ( РґР»СЏ РјРѕР±РёР»РєРё РЅР°РїСЂРёРјРµСЂ ) РµСЃР»Рё С‚Р°СЃРєР° РїРѕ РёРґ РіРѕС‚РѕРІР° Рє СЃРґР°С‡Рµ РєР»РёРµРЅС‚Сѓ
+    IF v_Request_Hash.Get_Number('Task_State') = As_Consts.СЃ_Task_State_Ready THEN
       FOR i IN v_Service_Ids_Array.First .. v_Service_Ids_Array.Last
       LOOP
         As_Http.Send_Task_Ready_Request(v_Service_Ids_Array(i));
       END LOOP;
     END IF;
   
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   
-    -- логирование 
+    -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
     As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                         i_Method_Name   => $$PLSQL_UNIT,
                         i_Request       => i_Request,
@@ -370,9 +370,9 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -382,19 +382,19 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
   END;
   ----------------------------------------------------------------------------------
-  -- Метод для учёта использованных зап частей по таскам 
+  -- РњРµС‚РѕРґ РґР»СЏ СѓС‡С‘С‚Р° РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅС‹С… Р·Р°Рї С‡Р°СЃС‚РµР№ РїРѕ С‚Р°СЃРєР°Рј 
   ----------------------------------------------------------------------------------
   PROCEDURE Add_Spare_Part_To_Task(i_Request_Id    VARCHAR2,
                                    i_User_Id       NUMBER,
                                    i_Request       CLOB,
                                    o_Error_Code    OUT VARCHAR2,
                                    o_Error_Message OUT VARCHAR2) IS
-    -- здесь используется свой кастомный тип для работы с JSON (к сожелению не могу им поделится)
+    -- Р·РґРµСЃСЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРІРѕР№ РєР°СЃС‚РѕРјРЅС‹Р№ С‚РёРї РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ JSON (Рє СЃРѕР¶РµР»РµРЅРёСЋ РЅРµ РјРѕРіСѓ РёРј РїРѕРґРµР»РёС‚СЃСЏ)
     v_Request_Hash Hashmap := Hashmap();
   BEGIN
-    -- Парсим JSON через кастомный парсер ( можно было использовать оракловый )
+    -- РџР°СЂСЃРёРј JSON С‡РµСЂРµР· РєР°СЃС‚РѕРјРЅС‹Р№ РїР°СЂСЃРµСЂ ( РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕСЂР°РєР»РѕРІС‹Р№ )
     Json_Parser.Parse_Json(i_Request, v_Request_Hash);
-    -- валидация 
+    -- РІР°Р»РёРґР°С†РёСЏ 
     As_Check.Check_Part_Params(i_Part_Id       => v_Request_Hash.Get_Number('Part_Id'),
                                i_Task_Id       => v_Request_Hash.Get_Number('Task_Id'),
                                i_Quantity      => v_Request_Hash.Get_Number('Quantity'),
@@ -402,7 +402,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                                o_Error_Code    => o_Error_Code,
                                o_Error_Message => o_Error_Message);
     IF o_Error_Code IS NOT NULL THEN
-      -- логирование 
+      -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
                           i_Request       => i_Request,
@@ -412,15 +412,15 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           i_Created_By    => i_User_Id);
       RETURN;
     END IF;
-    -- вызов метода 
+    -- РІС‹Р·РѕРІ РјРµС‚РѕРґР° 
     As_Kernel.Add_Spare_Parts_To_Task(i_Part_Id  => v_Request_Hash.Get_Number('Part_Id'),
                                       i_Task_Id  => v_Request_Hash.Get_Number('Task_Id'),
                                       i_Quantity => v_Request_Hash.Get_Number('Quantity'),
                                       i_Task_Uid => v_Request_Hash.Get_Number('Task_Uid'));
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
-    -- логирование 
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
+    -- Р»РѕРіРёСЂРѕРІР°РЅРёРµ 
     As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                         i_Method_Name   => $$PLSQL_UNIT,
                         i_Request       => i_Request,
@@ -431,7 +431,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
       As_Kernel.Save_Logs(i_Request_Id    => i_Request_Id,
                           i_Method_Name   => $$PLSQL_UNIT,
@@ -443,7 +443,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
       -- 
   END Add_Spare_Part_To_Task;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о статусе тасков возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚Р°С‚СѓСЃРµ С‚Р°СЃРєРѕРІ РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Task_States(o_Error_Message OUT VARCHAR2,
                             o_Error_Code    OUT VARCHAR2,
@@ -453,17 +453,17 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     OPEN o_Result_Cursor FOR
       SELECT *
         FROM As_s_Task_States g;
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о деталях тасков возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РґРµС‚Р°Р»СЏС… С‚Р°СЃРєРѕРІ РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Task_Details(i_Task_Uid      NUMBER,
                              o_Error_Message OUT VARCHAR2,
@@ -490,18 +490,18 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                  WHERE t.Task_Uid = i_Task_Uid
                  ORDER BY Service_Id)
     LOOP
-      -- Проверяем, является ли текущий SERVICE_ID новым
+      -- РџСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё С‚РµРєСѓС‰РёР№ SERVICE_ID РЅРѕРІС‹Рј
       IF v_Last_Service_Id IS NULL OR v_Last_Service_Id != Rec.Service_Id THEN
-        -- Завершаем предыдущую строку, если это не первая строка
+        -- Р—Р°РІРµСЂС€Р°РµРј РїСЂРµРґС‹РґСѓС‰СѓСЋ СЃС‚СЂРѕРєСѓ, РµСЃР»Рё СЌС‚Рѕ РЅРµ РїРµСЂРІР°СЏ СЃС‚СЂРѕРєР°
         IF v_Row_Count > 0 THEN
           v_Html := REPLACE(v_Html, '{ROWSPAN}', To_Char(v_Row_Count));
           v_Html := v_Html || '</tr>';
         END IF;
       
-        -- В новой строке обнуляем счетчик row_count
+        -- Р’ РЅРѕРІРѕР№ СЃС‚СЂРѕРєРµ РѕР±РЅСѓР»СЏРµРј СЃС‡РµС‚С‡РёРє row_count
         v_Row_Count := 1;
       
-        -- Добавляем строку с rowspan
+        -- Р”РѕР±Р°РІР»СЏРµРј СЃС‚СЂРѕРєСѓ СЃ rowspan
         v_Html := v_Html || '<tr>' || '<td>' || Rec.Task_Id || '</td>' || '<td>' || Rec.Task_Uid ||
                   '</td>' || '<td>' || Rec.Task_State_Name || '</td>' || '<td>' || Rec.Client_Name ||
                   '</td>' || '<td>' || Rec.Client_Phone || '</td>' || '<td>' || Rec.Vehicle ||
@@ -510,13 +510,13 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                   '<td rowspan="{ROWSPAN}">' || Rec.Description || '</td>' ||
                   '<td rowspan="{ROWSPAN}">' || Rec.Service_Price || '</td>';
       
-        -- Сохраняем service_id и добавляем стоимость к общей сумме за услуги
+        -- РЎРѕС…СЂР°РЅСЏРµРј service_id Рё РґРѕР±Р°РІР»СЏРµРј СЃС‚РѕРёРјРѕСЃС‚СЊ Рє РѕР±С‰РµР№ СЃСѓРјРјРµ Р·Р° СѓСЃР»СѓРіРё
         v_Total_Service_Amount := v_Total_Service_Amount + Rec.Service_Price;
         v_Last_Service_Id      := Rec.Service_Id;
       ELSE
-        -- Увеличиваем счетчик row_count для существующего SERVICE_ID
+        -- РЈРІРµР»РёС‡РёРІР°РµРј СЃС‡РµС‚С‡РёРє row_count РґР»СЏ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРіРѕ SERVICE_ID
         v_Row_Count := v_Row_Count + 1;
-        -- Добавляем новую строку без rowspan для service_id
+        -- Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ Р±РµР· rowspan РґР»СЏ service_id
         v_Html := v_Html || '</tr><tr>' || '<td>' || Rec.Task_Id || '</td>' || '<td>' ||
                   Rec.Task_Uid || '</td>' || '<td>' || Rec.Task_State_Name || '</td>' || '<td>' ||
                   Rec.Client_Name || '</td>' || '<td>' || Rec.Client_Phone || '</td>' || '<td>' ||
@@ -524,25 +524,25 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                   Rec.Mileage || '</td>';
       END IF;
     
-      -- Добавляем данные о запчастях и механике
+      -- Р”РѕР±Р°РІР»СЏРµРј РґР°РЅРЅС‹Рµ Рѕ Р·Р°РїС‡Р°СЃС‚СЏС… Рё РјРµС…Р°РЅРёРєРµ
       v_Html := v_Html || '<td>' || Coalesce(Rec.Spare_Part_Used, 'N/A') || '</td>' || '<td>' ||
                 Coalesce(To_Char(Rec.Quantity), 'N/A') || '</td>' || '<td>' ||
                 Coalesce(To_Char(Rec.Part_Price), 'N/A') || '</td>' || '<td>' || Rec.Mechanic ||
                 '</td>';
     
-      -- Рассчитываем общую сумму за запчасти
+      -- Р Р°СЃСЃС‡РёС‚С‹РІР°РµРј РѕР±С‰СѓСЋ СЃСѓРјРјСѓ Р·Р° Р·Р°РїС‡Р°СЃС‚Рё
       IF Rec.Part_Price IS NOT NULL AND Rec.Quantity IS NOT NULL THEN
         v_Total_Parts_Amount := v_Total_Parts_Amount + (Rec.Part_Price * Rec.Quantity);
       END IF;
     END LOOP;
   
-    -- Завершаем последнюю строку
+    -- Р—Р°РІРµСЂС€Р°РµРј РїРѕСЃР»РµРґРЅСЋСЋ СЃС‚СЂРѕРєСѓ
     IF v_Row_Count > 0 THEN
       v_Html := REPLACE(v_Html, '{ROWSPAN}', To_Char(v_Row_Count));
       v_Html := v_Html || '</tr>';
     END IF;
   
-    -- Завершаем HTML-таблицу и добавляем общую сумму
+    -- Р—Р°РІРµСЂС€Р°РµРј HTML-С‚Р°Р±Р»РёС†Сѓ Рё РґРѕР±Р°РІР»СЏРµРј РѕР±С‰СѓСЋ СЃСѓРјРјСѓ
     v_Html := v_Html || '</table>' || '<h2>Total Service Amount: ' ||
               To_Char(v_Total_Service_Amount, 'FM999,999.00') || '</h2>' ||
               '<h2>Total Spare Parts Amount: ' || To_Char(v_Total_Parts_Amount, 'FM999,999.00') ||
@@ -550,20 +550,20 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
               To_Char(v_Total_Service_Amount + v_Total_Parts_Amount, 'FM999,999.00') || '</h2>' ||
               '</body></html>';
   
-    -- Выводим или сохраняем сгенерированный HTML
+    -- Р’С‹РІРѕРґРёРј РёР»Рё СЃРѕС…СЂР°РЅСЏРµРј СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Р№ HTML
     o_Result := v_Html;
   
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END Get_Task_Details;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации об услугах возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РѕР± СѓСЃР»СѓРіР°С… РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Services(o_Error_Message OUT VARCHAR2,
                          o_Error_Code    OUT VARCHAR2,
@@ -573,17 +573,17 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     OPEN o_Result_Cursor FOR
       SELECT *
         FROM As_Services g;
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END Get_Services;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о cотрудниках сервиса возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ cРѕС‚СЂСѓРґРЅРёРєР°С… СЃРµСЂРІРёСЃР° РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Employees(i_First_Name    VARCHAR2,
                           i_Last_Name     VARCHAR2,
@@ -593,7 +593,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
                           o_Result_Cursor OUT SYS_REFCURSOR) IS
     v_Sql VARCHAR2(4000) := '  SELECT * FROM As_Employees g where 1=1 ';
   BEGIN
-    -- Собераем параметры поиска 
+    -- РЎРѕР±РµСЂР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РїРѕРёСЃРєР° 
     IF i_First_Name IS NOT NULL THEN
       v_Sql := v_Sql || ' and lower(first_name) like ''' || Lower(i_First_Name) || '''';
     END IF;
@@ -603,20 +603,20 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     IF i_Phone IS NOT NULL THEN
       v_Sql := v_Sql || ' and Phone = ''' || i_Phone || '''';
     END IF;
-    -- если фильтров нет то возвращаем весь список 
+    -- РµСЃР»Рё С„РёР»СЊС‚СЂРѕРІ РЅРµС‚ С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРј РІРµСЃСЊ СЃРїРёСЃРѕРє 
     OPEN o_Result_Cursor FOR v_Sql;
   
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о клиентах возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєР»РёРµРЅС‚Р°С… РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Client(i_First_Name    VARCHAR2,
                        i_Last_Name     VARCHAR2,
@@ -628,7 +628,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   
   BEGIN
   
-    -- Собераем параметры поиска 
+    -- РЎРѕР±РµСЂР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РїРѕРёСЃРєР° 
     IF i_First_Name IS NOT NULL THEN
       v_Sql := v_Sql || ' and lower(first_name) like ''' || Lower(i_First_Name) || '''';
     END IF;
@@ -638,20 +638,20 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     IF i_Phone IS NOT NULL THEN
       v_Sql := v_Sql || ' and Phone = ''' || i_Phone || '''';
     END IF;
-    -- если фильтров нет то возвращаем весь список 
+    -- РµСЃР»Рё С„РёР»СЊС‚СЂРѕРІ РЅРµС‚ С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРј РІРµСЃСЊ СЃРїРёСЃРѕРє 
     OPEN o_Result_Cursor FOR v_Sql;
   
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации об зарегистрированных автомобилях возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РѕР± Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… Р°РІС‚РѕРјРѕР±РёР»СЏС… РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Car(i_Vin           VARCHAR2,
                     i_License_Plate VARCHAR2,
@@ -663,7 +663,7 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
   
   BEGIN
   
-    -- Собераем параметры поиска 
+    -- РЎРѕР±РµСЂР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РїРѕРёСЃРєР° 
     IF i_Vin IS NOT NULL THEN
       v_Sql := v_Sql || ' and Vin = ''' || i_Vin || '''';
     END IF;
@@ -673,20 +673,20 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     IF i_Owner_Id IS NOT NULL THEN
       v_Sql := v_Sql || ' and Owner_Id = ' || i_Owner_Id;
     END IF;
-    -- если фильтров нет то возвращаем весь список 
+    -- РµСЃР»Рё С„РёР»СЊС‚СЂРѕРІ РЅРµС‚ С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРј РІРµСЃСЊ СЃРїРёСЃРѕРє 
     OPEN o_Result_Cursor FOR v_Sql;
   
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о производителях автомобиля  возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏС… Р°РІС‚РѕРјРѕР±РёР»СЏ  РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Vehicle_Make(o_Error_Message OUT VARCHAR2,
                              o_Error_Code    OUT VARCHAR2,
@@ -696,17 +696,17 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     OPEN o_Result_Cursor FOR
       SELECT *
         FROM As_s_Vehicle_Make g;
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о моделях автомобилей  возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РјРѕРґРµР»СЏС… Р°РІС‚РѕРјРѕР±РёР»РµР№  РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Vehicle_Model(o_Error_Message OUT VARCHAR2,
                               o_Error_Code    OUT VARCHAR2,
@@ -716,17 +716,17 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     OPEN o_Result_Cursor FOR
       SELECT *
         FROM As_s_Vehicle_Models g;
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
   ----------------------------------------------------------------------------------
-  -- Процедура для получение информации о учёте зап частей  возвращает курсор
+  -- РџСЂРѕС†РµРґСѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СѓС‡С‘С‚Рµ Р·Р°Рї С‡Р°СЃС‚РµР№  РІРѕР·РІСЂР°С‰Р°РµС‚ РєСѓСЂСЃРѕСЂ
   ----------------------------------------------------------------------------------
   PROCEDURE Get_Spare_Parts(o_Error_Message OUT VARCHAR2,
                             o_Error_Code    OUT VARCHAR2,
@@ -736,13 +736,13 @@ CREATE OR REPLACE PACKAGE BODY As_Api IS
     OPEN o_Result_Cursor FOR
       SELECT *
         FROM As_Spare_Parts g;
-    -- Вызвращаем код ответа успешно 
+    -- Р’С‹Р·РІСЂР°С‰Р°РµРј РєРѕРґ РѕС‚РІРµС‚Р° СѓСЃРїРµС€РЅРѕ 
     o_Error_Code    := As_Consts.c_Error_Code_Success;
-    o_Error_Message := As_Consts.с_Error_Message_Success;
+    o_Error_Message := As_Consts.СЃ_Error_Message_Success;
   EXCEPTION
     WHEN OTHERS THEN
       o_Error_Code    := As_Consts.c_Error_Code_Internal_Server;
-      o_Error_Message := As_Consts.с_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Internal_Server || To_Char(SQLERRM) || ' ' ||
                          Dbms_Utility.Format_Error_Backtrace;
   END;
 

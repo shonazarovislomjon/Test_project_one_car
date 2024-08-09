@@ -4,26 +4,26 @@ CREATE OR REPLACE PACKAGE As_Consts IS
   -- Created : 02.08.2024 12:31:38
   -- Purpose : 
 
-  -- Константы по статусам тасков
-  с_Task_State_Created    CONSTANT NUMBER := 1;
-  с_Task_State_In_Progres CONSTANT NUMBER := 2;
-  с_Task_State_Ready      CONSTANT NUMBER := 3;
-  с_Task_State_Closed     CONSTANT NUMBER := 4;
-  с_Task_State_Deleted    CONSTANT NUMBER := 5;
+  -- РљРѕРЅСЃС‚Р°РЅС‚С‹ РїРѕ СЃС‚Р°С‚СѓСЃР°Рј С‚Р°СЃРєРѕРІ
+  СЃ_Task_State_Created    CONSTANT NUMBER := 1;
+  СЃ_Task_State_In_Progres CONSTANT NUMBER := 2;
+  СЃ_Task_State_Ready      CONSTANT NUMBER := 3;
+  СЃ_Task_State_Closed     CONSTANT NUMBER := 4;
+  СЃ_Task_State_Deleted    CONSTANT NUMBER := 5;
 
-  -- Коды ошибок 
+  -- РљРѕРґС‹ РѕС€РёР±РѕРє 
   c_Error_Code_Success         CONSTANT NUMBER := 0;
   c_Error_Code_Internal_Server CONSTANT NUMBER := 4;
   c_Error_Code_Validation      CONSTANT NUMBER := 5;
   c_Error_Code_No_Data_Found   CONSTANT NUMBER := 2;
   c_Error_Code_Required_Fields CONSTANT NUMBER := 3;
 
-  -- Текст ошибок 
-  с_Error_Message_Success         CONSTANT VARCHAR2(4000) := 'Успешно';
-  с_Error_Message_Internal_Server CONSTANT VARCHAR2(4000) := 'Внутренняя ошибка сервера ';
-  с_Error_Message_Validation      CONSTANT VARCHAR2(4000) := 'Неверный формат входных данных';
-  с_Error_Message_No_Data_Found   CONSTANT VARCHAR2(4000) := 'Данные не найдены';
-  с_Error_Message_Required_Fields CONSTANT VARCHAR2(4000) := 'Обязательные поля не заполнены';
+  -- РўРµРєСЃС‚ РѕС€РёР±РѕРє 
+  СЃ_Error_Message_Success         CONSTANT VARCHAR2(4000) := 'РЈСЃРїРµС€РЅРѕ';
+  СЃ_Error_Message_Internal_Server CONSTANT VARCHAR2(4000) := 'Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР° ';
+  СЃ_Error_Message_Validation      CONSTANT VARCHAR2(4000) := 'РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ РІС…РѕРґРЅС‹С… РґР°РЅРЅС‹С…';
+  СЃ_Error_Message_No_Data_Found   CONSTANT VARCHAR2(4000) := 'Р”Р°РЅРЅС‹Рµ РЅРµ РЅР°Р№РґРµРЅС‹';
+  СЃ_Error_Message_Required_Fields CONSTANT VARCHAR2(4000) := 'РћР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ РЅРµ Р·Р°РїРѕР»РЅРµРЅС‹';
 
 END As_Consts;
 /

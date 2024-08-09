@@ -1,4 +1,4 @@
-﻿insert into as_s_task_states (TASK_STATE_ID, STATE_NAME)
+insert into as_s_task_states (TASK_STATE_ID, STATE_NAME)
 values (1, 'Создан');
 
 insert into as_s_task_states (TASK_STATE_ID, STATE_NAME)

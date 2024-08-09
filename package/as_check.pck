@@ -2,10 +2,10 @@ CREATE OR REPLACE PACKAGE As_Check IS
 
   -- Author  :ISLOMJON.SH
   -- Created : 01.08.2024 13:35:29
-  -- Purpose : пакет для выполнения проверок по методам 
+  -- Purpose : РїР°РєРµС‚ РґР»В¤ РІС‹РїРѕР»РЅРµРЅРёВ¤ РїСЂРѕРІРµСЂРѕРє РїРѕ РјРµС‚РѕРґР°Рј 
 
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по таскам 
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ С‚Р°СЃРєР°Рј 
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Params_Of_Tasks(i_Vehicle_Id        NUMBER,
                                   i_Service_Ids_Array Array_Number,
@@ -14,7 +14,7 @@ CREATE OR REPLACE PACKAGE As_Check IS
                                   o_Error_Code        OUT VARCHAR2,
                                   o_Error_Message     OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по клиентам
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ РєР»РёРµРЅС‚Р°Рј
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Client_Params(i_First_Name    VARCHAR2,
                                 i_Last_Name     VARCHAR2,
@@ -25,7 +25,7 @@ CREATE OR REPLACE PACKAGE As_Check IS
                                 o_Error_Code    OUT VARCHAR2,
                                 o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по автомобилям
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ Р°РІС‚РѕРјРѕР±РёР»В¤Рј
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Car_Params(i_Make          VARCHAR2,
                              i_Model         VARCHAR2,
@@ -36,7 +36,7 @@ CREATE OR REPLACE PACKAGE As_Check IS
                              o_Error_Code    OUT VARCHAR2,
                              o_Error_Message OUT VARCHAR2);
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по учёту зап частей 
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ СѓС‡Р„С‚Сѓ Р·Р°Рї С‡Р°СЃС‚РµР№ 
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Part_Params(i_Part_Id       NUMBER,
                               i_Task_Id       NUMBER,
@@ -51,7 +51,7 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
   g_Dummy VARCHAR2(4000);
 
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по таскам 
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ С‚Р°СЃРєР°Рј 
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Params_Of_Tasks(i_Vehicle_Id        NUMBER,
                                   i_Service_Ids_Array Array_Number,
@@ -63,8 +63,8 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
     --
     IF i_Vehicle_Id IS NULL THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields ||
-                         ' (Vehicle_Id) - обязательно к заполенению';
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields ||
+                         ' (Vehicle_Id) - РѕР±В¤Р·Р°С‚РµР»СЊРЅРѕ Рє Р·Р°РїРѕР»РµРЅРµРЅРёСЋ';
       RETURN;
     ELSE
       BEGIN
@@ -74,17 +74,17 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
          WHERE t.Id = i_Vehicle_Id;
       EXCEPTION
         WHEN No_Data_Found THEN
-          o_Error_Code    := As_Consts.с_Error_Message_Validation;
-          o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                             ' (Vehicle_Id) - Введён несуществующий идентификатор автомобиля.';
+          o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+          o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                             ' (Vehicle_Id) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕРјРѕР±РёР»В¤.';
           RETURN;
       END;
     END IF;
     --
     IF i_Emp_Ids_Array.Count = 0 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields ||
-                         ' (Emp_Ids_Array) - обязательно к заполенению';
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields ||
+                         ' (Emp_Ids_Array) - РѕР±В¤Р·Р°С‚РµР»СЊРЅРѕ Рє Р·Р°РїРѕР»РµРЅРµРЅРёСЋ';
       RETURN;
     ELSE
       FOR i IN i_Emp_Ids_Array.First .. i_Emp_Ids_Array.Last
@@ -96,9 +96,9 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
            WHERE t.Employee_Id = i_Emp_Ids_Array(i);
         EXCEPTION
           WHEN No_Data_Found THEN
-            o_Error_Code    := As_Consts.с_Error_Message_Validation;
-            o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                               ' (Emp_Ids_Array) - Введён несуществующий идентификатор услуги.';
+            o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+            o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                               ' (Emp_Ids_Array) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СѓСЃР»СѓРіРё.';
             RETURN;
         END;
       END LOOP;
@@ -106,8 +106,8 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
     --
     IF i_Service_Ids_Array.Count = 0 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields ||
-                         ' (Service_Ids_Array) - обязательно к заполенению';
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields ||
+                         ' (Service_Ids_Array) - РѕР±В¤Р·Р°С‚РµР»СЊРЅРѕ Рє Р·Р°РїРѕР»РµРЅРµРЅРёСЋ';
       RETURN;
     ELSE
       FOR i IN i_Service_Ids_Array.First .. i_Service_Ids_Array.Last
@@ -119,9 +119,9 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
            WHERE t.Service_Id = i_Service_Ids_Array(i);
         EXCEPTION
           WHEN No_Data_Found THEN
-            o_Error_Code    := As_Consts.с_Error_Message_Validation;
-            o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                               ' (Service_Ids_Array) - Введён несуществующий идентификатор услуги.';
+            o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+            o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                               ' (Service_Ids_Array) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СѓСЃР»СѓРіРё.';
             RETURN;
         END;
       END LOOP;
@@ -129,13 +129,13 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
     --
     IF i_Ammounts_Array.Count = 0 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields ||
-                         ' (Ammounts_Array) - обязательно к заполенению';
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields ||
+                         ' (Ammounts_Array) - РѕР±В¤Р·Р°С‚РµР»СЊРЅРѕ Рє Р·Р°РїРѕР»РµРЅРµРЅРёСЋ';
       RETURN;
     END IF;
   END Check_Params_Of_Tasks;
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по клиентам
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ РєР»РёРµРЅС‚Р°Рј
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Client_Params(i_First_Name    VARCHAR2,
                                 i_Last_Name     VARCHAR2,
@@ -149,56 +149,56 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
     --
     IF i_First_Name IS NULL OR i_Last_Name IS NULL OR i_Phone IS NULL OR i_Email IS NULL THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields;
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields;
       RETURN;
     END IF;
     --
     IF Length(i_First_Name) > 50 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' (First_Name) - длинна параметра должна быть 50, вы ввели ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' (First_Name) - РґР»РёРЅРЅР° РїР°СЂР°РјРµС‚СЂР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ 50, РІС‹ РІРІРµР»Рё ' ||
                          Length(i_First_Name);
       RETURN;
     END IF;
     --
     IF Length(i_Last_Name) > 50 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' (Last_Name) - длинна параметра должна быть 50, вы ввели ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' (Last_Name) - РґР»РёРЅРЅР° РїР°СЂР°РјРµС‚СЂР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ 50, РІС‹ РІРІРµР»Рё ' ||
                          Length(i_Last_Name);
       RETURN;
     END IF;
     --
     IF Length(i_Phone) > 50 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' (Phone) - длинна параметра должна быть 15, вы ввели ' || Length(i_Phone);
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' (Phone) - РґР»РёРЅРЅР° РїР°СЂР°РјРµС‚СЂР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ 15, РІС‹ РІРІРµР»Рё ' || Length(i_Phone);
       RETURN;
     END IF;
     --
     IF Length(i_Email) > 100 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' (Email) - длинна параметра должна быть 50, вы ввели ' || Length(i_Email);
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' (Email) - РґР»РёРЅРЅР° РїР°СЂР°РјРµС‚СЂР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ 50, РІС‹ РІРІРµР»Рё ' || Length(i_Email);
       RETURN;
     END IF;
     --
     IF Length(i_Address) > 200 THEN
       o_Error_Code    := As_Consts.c_Error_Code_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' (Address) - длинна параметра должна быть 50, вы ввели ' ||
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' (Address) - РґР»РёРЅРЅР° РїР°СЂР°РјРµС‚СЂР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ 50, РІС‹ РІРІРµР»Рё ' ||
                          Length(i_Address);
       RETURN;
     END IF;
     IF i_Date_Of_Birth > SYSDATE THEN
       o_Error_Code    := As_Consts.c_Error_Code_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' Значение поля (Date_Of_Birth) не должно быть больше сегодняшней даты';
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' В«РЅР°С‡РµРЅРёРµ РїРѕР»В¤ (Date_Of_Birth) РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ СЃРµРіРѕРґРЅВ¤С€РЅРµР№ РґР°С‚С‹';
       RETURN;
     END IF;
   END Check_Client_Params;
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по автомобилям
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ Р°РІС‚РѕРјРѕР±РёР»В¤Рј
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Car_Params(i_Make          VARCHAR2,
                              i_Model         VARCHAR2,
@@ -213,7 +213,7 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
     IF i_Make IS NULL OR i_Model IS NULL OR i_Mileage IS NULL OR i_Vin IS NULL OR
        i_License_Plate IS NULL OR i_Owner_Id IS NULL THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields;
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields;
       RETURN;
     END IF;
     --
@@ -224,9 +224,9 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
        WHERE g.Make = Upper(i_Make);
     EXCEPTION
       WHEN No_Data_Found THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (make) - Введён несуществующий идентификатор компании производителя автомобиля.';
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (make) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєРѕРјРїР°РЅРёРё РїСЂРѕРёР·РІРѕРґРёС‚РµР»В¤ Р°РІС‚РѕРјРѕР±РёР»В¤.';
         RETURN;
     END;
     --
@@ -237,9 +237,9 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
        WHERE g.Model = Upper(i_Model);
     EXCEPTION
       WHEN No_Data_Found THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (Model) - Введён несуществующий идентификатор модели автомобиля.';
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (Model) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РјРѕРґРµР»Рё Р°РІС‚РѕРјРѕР±РёР»В¤.';
         RETURN;
     END;
     --
@@ -250,16 +250,16 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
        WHERE g.Client_Id = i_Owner_Id;
     EXCEPTION
       WHEN No_Data_Found THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (Owner_Id) - Введён несуществующий идентификатор владельца автомобиля.';
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (Owner_Id) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° Р°РІС‚РѕРјРѕР±РёР»В¤.';
         RETURN;
     END;
     --
     --
   END Check_Car_Params;
   ----------------------------------------------------------------------------------
-  -- Валидация параметров по учёту зап частей 
+  -- В¬Р°Р»РёРґР°С†РёВ¤ РїР°СЂР°РјРµС‚СЂРѕРІ РїРѕ СѓС‡Р„С‚Сѓ Р·Р°Рї С‡Р°СЃС‚РµР№ 
   ----------------------------------------------------------------------------------
   PROCEDURE Check_Part_Params(i_Part_Id       NUMBER,
                               i_Task_Id       NUMBER,
@@ -271,7 +271,7 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
     --
     IF i_Part_Id IS NULL OR i_Task_Id IS NULL OR i_Quantity IS NULL OR i_Task_Uid IS NULL THEN
       o_Error_Code    := As_Consts.c_Error_Code_Required_Fields;
-      o_Error_Message := As_Consts.с_Error_Message_Required_Fields;
+      o_Error_Message := As_Consts.СЃ_Error_Message_Required_Fields;
       RETURN;
     END IF;
     --
@@ -282,25 +282,25 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
        WHERE t.Part_Id = i_Part_Id;
       --
       IF g_Dummy < i_Quantity THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (Quantity) - на складе не достаточно зап частей по вашему запросу ' ||
-                           i_Quantity || ' остаток по данной зап части с ид ' || i_Part_Id ||
-                           ' составляет ' || g_Dummy;
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (Quantity) - РЅР° СЃРєР»Р°РґРµ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·Р°Рї С‡Р°СЃС‚РµР№ РїРѕ РІР°С€РµРјСѓ Р·Р°РїСЂРѕСЃСѓ ' ||
+                           i_Quantity || ' РѕСЃС‚Р°С‚РѕРє РїРѕ РґР°РЅРЅРѕР№ Р·Р°Рї С‡Р°СЃС‚Рё СЃ РёРґ ' || i_Part_Id ||
+                           ' СЃРѕСЃС‚Р°РІР»В¤РµС‚ ' || g_Dummy;
         RETURN;
       END IF;
     EXCEPTION
       WHEN No_Data_Found THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (Part_Id) - Введён несуществующий идентификатор зап части.';
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (Part_Id) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°Рї С‡Р°СЃС‚Рё.';
         RETURN;
     END;
     --
     IF i_Quantity <= 0 THEN
-      o_Error_Code    := As_Consts.с_Error_Message_Validation;
-      o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                         ' (Quantity) - нельзя вводить 0 или отрицательное значение ';
+      o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+      o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                         ' (Quantity) - РЅРµР»СЊР·В¤ РІРІРѕРґРёС‚СЊ 0 РёР»Рё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ ';
       RETURN;
     END IF;
     --
@@ -311,17 +311,17 @@ CREATE OR REPLACE PACKAGE BODY As_Check IS
        WHERE t.Task_Id = i_Task_Id
          AND t.Task_Uid = i_Task_Uid;
       --
-      IF g_Dummy IN (As_Consts.с_Task_State_Closed, As_Consts.с_Task_State_Deleted) THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (Task_Id и Task_Uid) - нельзя добавлять зап части в таску в состоянии (Удалён или Закрыт)';
+      IF g_Dummy IN (As_Consts.СЃ_Task_State_Closed, As_Consts.СЃ_Task_State_Deleted) THEN
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (Task_Id Рё Task_Uid) - РЅРµР»СЊР·В¤ РґРѕР±Р°РІР»В¤С‚СЊ Р·Р°Рї С‡Р°СЃС‚Рё РІ С‚Р°СЃРєСѓ РІ СЃРѕСЃС‚РѕВ¤РЅРёРё (вЂќРґР°Р»Р„РЅ РёР»Рё В«Р°РєСЂС‹С‚)';
         RETURN;
       END IF;
     EXCEPTION
       WHEN No_Data_Found THEN
-        o_Error_Code    := As_Consts.с_Error_Message_Validation;
-        o_Error_Message := As_Consts.с_Error_Message_Validation ||
-                           ' (Task_Id и Task_Uid) - Введён несуществующий идентификатор таски.';
+        o_Error_Code    := As_Consts.СЃ_Error_Message_Validation;
+        o_Error_Message := As_Consts.СЃ_Error_Message_Validation ||
+                           ' (Task_Id Рё Task_Uid) - В¬РІРµРґР„РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚Р°СЃРєРё.';
         RETURN;
     END;
   END Check_Part_Params;
